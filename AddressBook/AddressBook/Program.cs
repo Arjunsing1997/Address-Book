@@ -31,6 +31,7 @@ namespace AddressBook
                 Console.WriteLine("Please enter a command: ");
                 Console.WriteLine("ADD");
                 Console.WriteLine("LIST");
+                Console.WriteLine("----------------");
                 command = Console.ReadLine().ToLower();
                 switch (command)
                 {
