@@ -31,7 +31,6 @@ namespace AddressBook
                 Console.WriteLine("Please enter a command: ");
                 Console.WriteLine("ADD");
                 Console.WriteLine("LIST");
-                Console.WriteLine("----------------");
                 command = Console.ReadLine().ToLower();
                 switch (command)
                 {
@@ -41,40 +40,42 @@ namespace AddressBook
                     case "list":
                         ListPeople();
                         break;
+                    default : Console.WriteLine("Invalid Choice");
+                        break;
                 }
             }
         }
-            private static void AddPerson()
-            {
-                Person person = new Person();
+        private static void AddPerson()
+        {
+            Person person = new Person();
 
-                Console.Write("Enter First Name: ");
-                person.FirstName = Console.ReadLine();
+            Console.Write("Enter First Name: ");
+            person.FirstName = Console.ReadLine();
 
-                Console.Write("Enter Last Name: ");
-                person.LastName = Console.ReadLine();
+            Console.Write("Enter Last Name: ");
+            person.LastName = Console.ReadLine();
 
-                Console.Write("Enter Address : ");
-                person.Address = Console.ReadLine();
+            Console.Write("Enter Address : ");
+            person.Address = Console.ReadLine();
 
-                Console.Write("Enter City: ");
-                person.City = Console.ReadLine();
+            Console.Write("Enter City: ");
+            person.City = Console.ReadLine();
 
-                Console.Write("Enter State : ");
-                person.State = Console.ReadLine();
+            Console.Write("Enter State : ");
+            person.State = Console.ReadLine();
 
-                Console.Write("Enter ZIP : ");
-                person.Zip = Console.ReadLine();
+            Console.Write("Enter ZIP : ");
+            person.Zip = Console.ReadLine();
 
-                Console.Write("Enter Phone Number: ");
-                person.PhoneNumber = Console.ReadLine();
+            Console.Write("Enter Phone Number: ");
+            person.PhoneNumber = Console.ReadLine();
 
-                Console.Write("Enter Email : ");
-                person.Email = Console.ReadLine();
+            Console.Write("Enter Email : ");
+            person.Email = Console.ReadLine();
 
-                People.Add(person);
-            }
-         private static void ListPeople()
+            People.Add(person);
+        }
+        private static void ListPeople()
         {
             if (People.Count == 0)
             {
@@ -96,11 +97,11 @@ namespace AddressBook
             Console.WriteLine("First Name: " + person.FirstName);
             Console.WriteLine("Last Name: " + person.LastName);
             Console.WriteLine("Address : " + person.Address);
-            Console.WriteLine("City: "+person.City);
-            Console.WriteLine("Satet: "+person.State);
-            Console.WriteLine("ZIP: "+person.Zip);
+            Console.WriteLine("City: " + person.City);
+            Console.WriteLine("Satet: " + person.State);
+            Console.WriteLine("ZIP: " + person.Zip);
             Console.WriteLine("Phone Number: " + person.PhoneNumber);
-            Console.WriteLine("Email :"+person.Email);
+            Console.WriteLine("Email :" + person.Email);
 
             Console.WriteLine("-------------------------------------------");
         }
