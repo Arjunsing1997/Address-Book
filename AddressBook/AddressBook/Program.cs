@@ -31,6 +31,8 @@ namespace AddressBook
                 Console.WriteLine("Please enter a command: ");
                 Console.WriteLine("ADD");
                 Console.WriteLine("LIST");
+                Console.WriteLine("Edit");
+                Console.WriteLine("-------------------------");
                 command = Console.ReadLine().ToLower();
                 switch (command)
                 {
@@ -40,7 +42,11 @@ namespace AddressBook
                     case "list":
                         ListPeople();
                         break;
-                    default : Console.WriteLine("Invalid Choice");
+                    case "edit":
+                        EditRecord();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Choice");
                         break;
                 }
             }
@@ -104,6 +110,76 @@ namespace AddressBook
             Console.WriteLine("Email :" + person.Email);
 
             Console.WriteLine("-------------------------------------------");
+        }
+        public static void EditRecord() // EditRecord Method 
+        {
+            Console.WriteLine("Enter first name:");
+            string fname = Console.ReadLine();
+
+            for (int k = 0; k < People.Count; k++) //Value  present or not
+            {
+                if (People[k].FirstName.Equals(fname))
+                {
+                    Person person = People[k];
+                    Console.WriteLine(person);  //Print person
+                    while (k == 0)  // k==0 to edite contact
+                    {
+                        Console.WriteLine("What Do You Want to edit Contact Details \n"
+                                + "1. Address\n"
+                                + "2. city\n"
+                                + "3. State\n"
+                                + "4. Zip Code\n"
+                                + "5. Phone\n"
+                                + "6. Email\n"
+                                + "7. Save And Exit\n");
+
+                        int choice = Convert.ToInt32(Console.ReadLine());  //convert string and store choice
+                        switch (choice)  //case 
+                        {
+                            case 1:
+                                Console.Write("Enter new Address:-  ");  //Take input user
+                                String address = Console.ReadLine();   //store address veriable
+                                person.Address = address;  //store class of person address data
+                                break;
+                            case 2:
+                                Console.Write("Enter new City:- "); //Take input user
+                                String city = Console.ReadLine();  //store city veriable
+                                person.City = city;                 //store class of person city data
+                                break;
+                            case 3:
+                                Console.Write("Enter new State:- "); //Take input user
+                                String state = Console.ReadLine();   //store state veriable
+                                person.State = state;               //store class of person state data
+                                break;
+                            case 5:
+                                Console.Write("Enter new Phone:- "); //Take input user
+                                String phone = Console.ReadLine();   //store phone veriable
+                                person.PhoneNumber = phone;                 //store class of person phone data
+                                break;
+                            case 4:
+                                Console.Write("Enter new Zip Code:- "); //Take input user
+                                String zip = Console.ReadLine();        //store zip veriable
+                                person.Zip = zip;                       //store class of person zip data
+                                break;
+                            case 6:
+                                Console.Write("Enter new Email:- "); //Take input user
+                                String email = Console.ReadLine();         //store email veriable
+                                person.Email = email;                       //store class of person Email data
+                                break;
+                            case 7:
+                                k = 1;
+                                break;
+                            default:
+                                Console.WriteLine("Please Enter Valid Option");
+                                break;
+                        }
+                        foreach (Person t in People) //automate the reading  t of person of class
+                        {
+                            Console.WriteLine(t);//print list
+                        }
+                    }
+                }
+            }
         }
     }
 }
